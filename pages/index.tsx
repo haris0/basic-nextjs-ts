@@ -1,9 +1,16 @@
 import type { NextPage } from 'next';
+import Link from 'next/link';
 
 const Home: NextPage = () => (
-  <div>
+  <>
     <h1>Home</h1>
-  </div>
+    <Link href="/about">
+      <button type="button">about</button>
+    </Link>
+    <Link href="/user">
+      <button type="button">user</button>
+    </Link>
+  </>
 );
 
 export default Home;
