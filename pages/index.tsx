@@ -16,7 +16,7 @@ const Home: NextPage = () => {
       <Link href="/about">
         <button type="button">about</button>
       </Link>
-      <Link href="/user">
+      <Link href="/users">
         <button type="button">user</button>
       </Link>
       <br />
