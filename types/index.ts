@@ -17,7 +17,7 @@ export interface Company {
   bs: string;
 }
 
-export interface User {
+export interface UserType {
   id: number;
   name: string;
   username: string;
