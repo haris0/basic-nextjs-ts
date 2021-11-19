@@ -34,3 +34,10 @@ export interface PostType {
   title: string;
   body: string;
 }
+
+export interface ProductType {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+}

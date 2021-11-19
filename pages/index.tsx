@@ -13,15 +13,15 @@ const Home: NextPage = () => {
   return (
     <>
       <h1>Home</h1>
-      <Link href="/about">
+      <Link href="/about" passHref>
         <button type="button">about</button>
       </Link>
       <br />
-      <Link href="/users">
+      <Link href="/users" passHref>
         <button type="button">user</button>
       </Link>
       <br />
-      <Link href="/posts">
+      <Link href="/posts" passHref>
         <button type="button">Post</button>
       </Link>
       <br />
@@ -29,7 +29,7 @@ const Home: NextPage = () => {
         type="button"
         onClick={handleClick}
       >
-        Place Order
+        Product
       </button>
     </>
   );
