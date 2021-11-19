@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { GetStaticProps } from 'next';
 import dynamic from 'next/dynamic';
 import { UserType } from '../../types';
 
@@ -16,11 +16,11 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const UserList: NextPage = ({ users }: InferGetStaticPropsType<typeof getStaticProps>) => (
+const UserList: NextPage<{ users: UserType[] }> = ({ users }) => (
   <div>
     <h1>User List</h1>
     <ul>
-      {users.map((user: UserType) => (
+      {users.map((user) => (
         <UserCard user={user} key={user.id} />
       ))}
     </ul>

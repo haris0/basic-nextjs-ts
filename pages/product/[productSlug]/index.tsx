@@ -2,7 +2,6 @@ import { useRouter } from 'next/router';
 import type {
   GetStaticPaths,
   GetStaticProps,
-  InferGetStaticPropsType,
   NextPage,
 } from 'next';
 import { ProductType } from '../../../types';
@@ -26,7 +25,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-const ProducDetail: NextPage = ({ product }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const ProducDetail: NextPage<{ product: ProductType }> = ({ product }) => {
   const router = useRouter();
   const { productSlug } = router.query;
 

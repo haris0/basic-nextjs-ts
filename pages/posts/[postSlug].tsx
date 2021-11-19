@@ -1,7 +1,6 @@
 import type {
   GetStaticPaths,
   GetStaticProps,
-  InferGetStaticPropsType,
   NextPage,
 } from 'next';
 import { useRouter } from 'next/router';
@@ -34,7 +33,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-const PostDetail: NextPage = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const PostDetail: NextPage<{ post: PostType}> = ({ post }) => {
   const router = useRouter();
 
   return (

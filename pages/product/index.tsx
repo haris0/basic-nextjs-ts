@@ -1,4 +1,4 @@
-import type { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
+import type { GetStaticProps, NextPage } from 'next';
 import { ProductType } from '../../types';
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -14,10 +14,10 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const Product: NextPage = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => (
+const Product: NextPage<{ products: ProductType[] }> = ({ products }) => (
   <div>
     <h1>Product List</h1>
-    {products?.map((product: ProductType) => (
+    {products.map((product) => (
       <div key={product.id}>
         <h2>{product.id} {product.title} {product.price}</h2>
       </div>
