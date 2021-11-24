@@ -2,7 +2,15 @@ import type { GetServerSideProps, NextPage } from 'next';
 import { Article } from '../../types';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { params } = context;
+  const {
+    params,
+    req,
+    res,
+    query,
+  } = context;
+  console.log(query);
+  console.log(req.headers.cookie);
+  res.setHeader('Set-Cookie', ['name=ZeroCode']);
   const category = params?.category;
   const response = await fetch(`http://localhost:4000/news?category=${category}`);
   const data: Article[] = await response.json();
