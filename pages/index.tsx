@@ -35,6 +35,10 @@ const Home: NextPage = () => {
       <Link href="/news" passHref>
         <button type="button">News</button>
       </Link>
+      <br />
+      <Link href="/dashboard" passHref>
+        <button type="button">Dashboard</button>
+      </Link>
     </>
   );
 };
