@@ -17,7 +17,7 @@ export interface Company {
   bs: string;
 }
 
-export interface UserType {
+export interface User {
   id: number;
   name: string;
   username: string;
@@ -28,16 +28,23 @@ export interface UserType {
   company: Company;
 }
 
-export interface PostType {
+export interface Post {
   userId: number;
   id: number;
   title: string;
   body: string;
 }
 
-export interface ProductType {
+export interface Product {
   id: number;
   title: string;
   price: number;
   description: string;
+}
+
+export interface Articl {
+  id: number;
+  title: string;
+  description: string;
+  category: string;
 }

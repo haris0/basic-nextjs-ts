@@ -4,7 +4,7 @@ import type {
   NextPage,
 } from 'next';
 import { useRouter } from 'next/router';
-import { PostType } from '../../types';
+import { Post } from '../../types';
 
 export const getStaticPaths: GetStaticPaths = async () => ({
   paths: [
@@ -18,7 +18,7 @@ export const getStaticPaths: GetStaticPaths = async () => ({
 export const getStaticProps: GetStaticProps = async (context) => {
   const { params } = context;
   const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${params?.postSlug}`);
-  const data: PostType = await response.json();
+  const data: Post = await response.json();
 
   if (!data.id) {
     return { notFound: true };
@@ -33,7 +33,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-const PostDetail: NextPage<{ post: PostType}> = ({ post }) => {
+const PostDetail: NextPage<{ post: Post}> = ({ post }) => {
   const router = useRouter();
 
   return (

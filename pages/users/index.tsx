@@ -1,13 +1,13 @@
 import type { NextPage } from 'next';
 import { GetStaticProps } from 'next';
 import dynamic from 'next/dynamic';
-import { UserType } from '../../types';
+import { User } from '../../types';
 
 const UserCard = dynamic(() => import('../../components/users/userCard'));
 
 export const getStaticProps: GetStaticProps = async () => {
   const response = await fetch('https://jsonplaceholder.typicode.com/users');
-  const data: UserType[] = await response.json();
+  const data: User[] = await response.json();
 
   return {
     props: {
@@ -16,7 +16,7 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const UserList: NextPage<{ users: UserType[] }> = ({ users }) => (
+const UserList: NextPage<{ users: User[] }> = ({ users }) => (
   <div>
     <h1>User List</h1>
     <ul>

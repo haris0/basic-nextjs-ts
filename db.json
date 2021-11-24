@@ -1,4 +1,24 @@
 {
+  "News": [
+    {
+      "id": 1,
+      "title": "News Articel 1",
+      "description": "Description 1",
+      "category": "sports"
+    },
+    {
+      "id": 2,
+      "title": "News Articel 2",
+      "description": "Description 2",
+      "category": "politics"
+    },
+    {
+      "id": 3,
+      "title": "News Articel 3",
+      "description": "Description 3",
+      "category": "sports"
+    }
+  ],
   "product": [
     {
       "id": 1,

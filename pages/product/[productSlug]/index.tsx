@@ -4,7 +4,7 @@ import type {
   GetStaticProps,
   NextPage,
 } from 'next';
-import { ProductType } from '../../../types';
+import { Product } from '../../../types';
 
 export const getStaticPaths: GetStaticPaths = () => ({
   paths: [{ params: { productSlug: '1' } }],
@@ -15,7 +15,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const { params } = context;
   console.log(`Regenerating ProductList ${params?.productSlug}`);
   const response = await fetch(`http://localhost:4000/product/${params?.productSlug}`);
-  const data: ProductType = await response.json();
+  const data: Product = await response.json();
 
   return {
     props: {
@@ -25,7 +25,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-const ProducDetail: NextPage<{ product: ProductType }> = ({ product }) => {
+const ProducDetail: NextPage<{ product: Product }> = ({ product }) => {
   const router = useRouter();
   const { productSlug } = router.query;
 

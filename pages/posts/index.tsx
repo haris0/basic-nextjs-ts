@@ -1,11 +1,11 @@
 import type { NextPage } from 'next';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
-import { PostType } from '../../types';
+import { Post } from '../../types';
 
 export const getStaticProps: GetStaticProps = async () => {
   const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-  const data: PostType[] = await response.json();
+  const data: Post[] = await response.json();
 
   return {
     props: {
@@ -14,7 +14,7 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const PostList: NextPage<{ posts: PostType[] }> = ({ posts }) => (
+const PostList: NextPage<{ posts: Post[] }> = ({ posts }) => (
   <>
     <h1>List of Posts</h1>
     {posts.map((post) => (

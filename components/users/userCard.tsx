@@ -1,7 +1,7 @@
-import { UserType } from '../../types';
+import { User } from '../../types';
 
 type props ={
-  user: UserType
+  user: User
 }
 
 const UserCard = ({ user }: props) => (

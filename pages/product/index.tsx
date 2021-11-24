@@ -1,10 +1,10 @@
 import type { GetStaticProps, NextPage } from 'next';
-import { ProductType } from '../../types';
+import { Product } from '../../types';
 
 export const getStaticProps: GetStaticProps = async () => {
   console.log('Generating/ Regenerating ProductList');
   const response = await fetch('http://localhost:4000/product');
-  const data: ProductType[] = await response.json();
+  const data: Product[] = await response.json();
 
   return {
     props: {
@@ -14,7 +14,7 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const Product: NextPage<{ products: ProductType[] }> = ({ products }) => (
+const ProductList: NextPage<{ products: Product[] }> = ({ products }) => (
   <div>
     <h1>Product List</h1>
     {products.map((product) => (
@@ -25,4 +25,4 @@ const Product: NextPage<{ products: ProductType[] }> = ({ products }) => (
   </div>
 );
 
-export default Product;
+export default ProductList;
