@@ -42,7 +42,7 @@ export interface Product {
   description: string;
 }
 
-export interface Articl {
+export interface Article {
   id: number;
   title: string;
   description: string;

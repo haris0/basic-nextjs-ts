@@ -1,9 +1,9 @@
 import type { GetServerSideProps, NextPage } from 'next';
-import { Articl } from '../../types';
+import { Article } from '../../types';
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const response = await fetch('http://localhost:4000/News');
-  const data: Articl[] = await response.json();
+  const data: Article[] = await response.json();
 
   return {
     props: {
@@ -12,7 +12,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   };
 };
 
-const NewsArticelList: NextPage<{ articles: Articl[] }> = ({ articles }) => (
+const NewsArticelList: NextPage<{ articles: Article[] }> = ({ articles }) => (
   <>
     <h2>List of New Articles:</h2>
     { articles.map((article) => (
