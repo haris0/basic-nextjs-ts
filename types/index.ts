@@ -48,3 +48,10 @@ export interface Article {
   description: string;
   category: string;
 }
+
+export interface Dashboard {
+  post: number;
+  likes: number;
+  followers: number;
+  following: number;
+}
