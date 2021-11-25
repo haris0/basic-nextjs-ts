@@ -1,7 +1,9 @@
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { Comment } from '../../types';
 
 const CommentsList = () => {
+  const router = useRouter();
   const [comments, setComments] = useState<Comment[]>();
   const [comment, setComment] = useState('');
 
@@ -47,6 +49,10 @@ const CommentsList = () => {
     fetchComments();
   };
 
+  const detailComment = (commentId: number) => {
+    router.push(`/comments/${commentId}`);
+  };
+
   return (
     <>
       <input
@@ -80,6 +86,12 @@ const CommentsList = () => {
             onClick={() => updateComment(com.id, com.text)}
           >
             Update
+          </button>
+          <button
+            type="button"
+            onClick={() => detailComment(com.id)}
+          >
+            Detail
           </button>
         </div>
       ))}
