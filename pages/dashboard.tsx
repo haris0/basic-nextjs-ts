@@ -1,31 +1,28 @@
 import { NextPage } from 'next';
-import { useEffect, useState } from 'react';
+import useSWR from 'swr';
 import { Dashboard } from '../types';
 
-const DashboardPage: NextPage = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [dashboardData, setDashboardData] = useState<Dashboard | null>(null);
+const fetcher = async (url: string): Promise<any> => {
+  const res = await fetch(url);
+  return res.json();
+};
 
-  useEffect(() => {
-    const fetchDashboardData = async () => {
-      const response = await fetch('http://localhost:4000/dashboard');
-      const data: Dashboard = await response.json();
-      setDashboardData(data);
-      setIsLoading(false);
-    };
-    fetchDashboardData();
-  }, []);
+const DashboardPage: NextPage = () => {
+  const { data, error } = useSWR<Dashboard, Error>(
+    'http://localhost:4000/dashboard',
+    fetcher,
+  );
 
   return (
     <div className="dashboard">
-      {isLoading && (<h2>Loading...</h2>)}
-      {!isLoading && dashboardData && (
+      {!data && !error && (<h2>Loading...</h2>)}
+      {data && (
         <div>
           <h2>Dashboard</h2>
-          <h2>Post - {dashboardData.post}</h2>
-          <h2>Likes - {dashboardData.likes}</h2>
-          <h2>Followers - {dashboardData.followers}</h2>
-          <h2>Followings - {dashboardData.following}</h2>
+          <h2>Post - {data.post}</h2>
+          <h2>Likes - {data.likes}</h2>
+          <h2>Followers - {data.followers}</h2>
+          <h2>Followings - {data.following}</h2>
         </div>
       )}
     </div>
