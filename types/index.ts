@@ -63,3 +63,8 @@ export interface Event {
   category: string;
   date: string;
 }
+
+export interface Comments {
+  id: number;
+  text: string;
+}
