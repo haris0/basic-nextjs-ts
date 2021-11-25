@@ -1,10 +1,20 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import comments from '../../../data/comments';
-import { Comments } from '../../../types';
+import { Comment } from '../../../types';
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Comments[]>,
+  res: NextApiResponse< Comment[] | Comment>,
 ) {
-  res.status(200).json(comments);
+  if (req.method === 'GET') {
+    res.status(200).json(comments);
+  } else if (req.method === 'POST') {
+    const { comment } = req.body;
+    const newComment = {
+      id: Date.now(),
+      text: comment,
+    };
+    comments.push(newComment);
+    res.status(201).json(newComment);
+  }
 }
