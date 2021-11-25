@@ -7,6 +7,23 @@ export default function handler(
   res: NextApiResponse< Comment | undefined>,
 ) {
   const { commentId } = req.query;
-  const comment = comments.find((com) => com.id === +commentId);
-  res.status(201).json(comment);
+  const index = comments.findIndex((com) => com.id === +commentId);
+
+  if (req.method === 'GET') {
+    res.status(201).json(comments[index]);
+  } else if (req.method === 'DELETE') {
+    const comment = comments[index];
+    comments.splice(index, 1);
+    res.status(201).json(comment);
+  } else if (req.method === 'PATCH') {
+    const { updatedComment } = req.body;
+    console.log(updatedComment);
+
+    comments[index] = {
+      ...comments[index],
+      text: updatedComment,
+    };
+
+    res.status(201).json(comments[index]);
+  }
 }
