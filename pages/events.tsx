@@ -2,6 +2,7 @@ import type { GetServerSideProps, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { Event } from '../types';
+import styles from '../styles/Events.module.scss';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { query } = context;
@@ -41,7 +42,8 @@ const EventsList: NextPage<{ events: Event[] }> = ({ events }) => {
       {eventList.map((event) => (
         <div key={event.id}>
           <h2>
-            {event.id} {event.title} {event.date} | {event.category}
+            {event.id} {event.title} {event.date} |
+            <span className={styles.category}>{` ${event.category}`}</span>
           </h2>
           <p>{event.description}</p>
           <hr />
