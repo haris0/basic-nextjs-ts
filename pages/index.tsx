@@ -14,38 +14,53 @@ const Home: NextPage = () => {
     <>
       <h1>Home</h1>
       <Link href="/about" passHref>
-        <button type="button">about</button>
+        <button type="button" className="btn btn-primary">
+          about
+        </button>
       </Link>
       <br />
       <Link href="/users" passHref>
-        <button type="button">user</button>
+        <button type="button" className="btn btn-primary">
+          user
+        </button>
       </Link>
       <br />
       <Link href="/posts" passHref>
-        <button type="button">Post</button>
+        <button type="button" className="btn btn-primary">
+          Post
+        </button>
       </Link>
       <br />
       <button
         type="button"
+        className="btn btn-primary"
         onClick={handleClick}
       >
         Product
       </button>
       <br />
       <Link href="/news" passHref>
-        <button type="button">News</button>
+        <button type="button" className="btn btn-primary">
+          News
+        </button>
       </Link>
       <br />
       <Link href="/dashboard" passHref>
-        <button type="button">Dashboard</button>
+        <button type="button" className="btn btn-primary">
+          Dashboard
+        </button>
       </Link>
       <br />
       <Link href="/events" passHref>
-        <button type="button">Events</button>
+        <button type="button" className="btn btn-primary">
+          Events
+        </button>
       </Link>
       <br />
       <Link href="/comments" passHref>
-        <button type="button">Comments</button>
+        <button type="button" className="btn btn-primary">
+          Comments
+        </button>
       </Link>
     </>
   );
