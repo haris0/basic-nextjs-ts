@@ -1,9 +1,12 @@
-import type { NextPage } from 'next';
+import type { ReactElement } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic';
 import styles from '../styles/Home.module.css';
 
-const Home: NextPage = () => {
+const Layout = dynamic(() => import('../components/layout'));
+
+const Home = () => {
   const router = useRouter();
 
   const handleClick = () => {
@@ -61,3 +64,11 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+Home.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <Layout>
+      {page}
+    </Layout>
+  );
+};
