@@ -1,10 +1,8 @@
 import type { ReactElement } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import dynamic from 'next/dynamic';
-import styles from '../styles/Home.module.css';
-
-const Layout = dynamic(() => import('../components/layout'));
+import Layout from '@components/layout';
+import styles from '@styles/Home.module.css';
 
 const Home = () => {
   const router = useRouter();

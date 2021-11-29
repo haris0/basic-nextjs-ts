@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 import Head from 'next/head';
-import Layout from '../components/layout';
+import Layout from '@components/layout';
 
 const About = () => (
   <div>

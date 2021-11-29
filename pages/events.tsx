@@ -1,9 +1,9 @@
 import type { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
 import { ReactElement, useState } from 'react';
+import Layout from '@components/layout';
+import styles from '@styles/Events.module.scss';
 import { Event, NextPageWithLayout } from '../types';
-import styles from '../styles/Events.module.scss';
-import Layout from '../components/layout';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { query } = context;

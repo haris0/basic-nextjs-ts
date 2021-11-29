@@ -3,7 +3,7 @@ import { GetStaticProps } from 'next';
 import dynamic from 'next/dynamic';
 import { User } from '../../types';
 
-const UserCard = dynamic(() => import('../../components/users/userCard'));
+const UserCard = dynamic(() => import('@components/users/userCard'));
 
 export const getStaticProps: GetStaticProps = async () => {
   const response = await fetch('https://jsonplaceholder.typicode.com/users');

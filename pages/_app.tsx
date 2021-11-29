@@ -1,5 +1,5 @@
-import '../styles/globals.css';
-import '../styles/layout.scss';
+import '@styles/globals.css';
+import '@styles/layout.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ThemeProvider } from 'styled-components';
 import Head from 'next/head';
