@@ -1,4 +1,24 @@
 {
+  "blog": [
+    {
+      "id": 1,
+      "title": "Blog Articel 1",
+      "description": "Description 1",
+      "category": "sports"
+    },
+    {
+      "id": 2,
+      "title": "Blog Articel 2",
+      "description": "Description 2",
+      "category": "politics"
+    },
+    {
+      "id": 3,
+      "title": "Blog Articel 3",
+      "description": "Description 3",
+      "category": "sports"
+    }
+  ],
   "events": [
     {
       "id": 1,

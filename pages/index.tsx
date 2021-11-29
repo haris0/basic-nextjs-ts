@@ -59,6 +59,11 @@ const Home = () => {
           Comments
         </button>
       </Link>
+      <Link href="/blogs" passHref>
+        <button type="button" className="btn btn-primary">
+          Blogs
+        </button>
+      </Link>
     </div>
   );
 };

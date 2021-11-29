@@ -81,3 +81,10 @@ export interface Comment {
   id: number;
   text: string;
 }
+
+export interface Blog {
+  id: number;
+  title: string;
+  description: string;
+  category: string;
+}
