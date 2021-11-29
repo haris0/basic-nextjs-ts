@@ -1,3 +1,16 @@
+import { NextPage } from 'next';
+import { AppProps } from 'next/app';
+import { ReactElement, ReactNode } from 'react';
+
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<IP> & {
+  // eslint-disable-next-line no-unused-vars
+  getLayout?: (page: ReactElement) => ReactNode;
+}
+
+export type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout
+}
+
 export interface Geo {
   lat: string;
   lng: string;

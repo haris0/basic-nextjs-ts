@@ -1,8 +1,9 @@
-import type { GetServerSideProps, NextPage } from 'next';
+import type { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
-import { Event } from '../types';
+import { ReactElement, useState } from 'react';
+import { Event, NextPageWithLayout } from '../types';
 import styles from '../styles/Events.module.scss';
+import Layout from '../components/layout';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { query } = context;
@@ -18,7 +19,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   };
 };
 
-const EventsList: NextPage<{ events: Event[] }> = ({ events }) => {
+const EventsList: NextPageWithLayout<{ events: Event[] }> = ({ events }) => {
   const router = useRouter();
   const [eventList, setEventList] = useState(events);
 
@@ -54,3 +55,11 @@ const EventsList: NextPage<{ events: Event[] }> = ({ events }) => {
 };
 
 export default EventsList;
+
+EventsList.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <Layout>
+      {page}
+    </Layout>
+  );
+};
