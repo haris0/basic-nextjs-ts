@@ -64,6 +64,11 @@ const Home = () => {
           Blogs
         </button>
       </Link>
+      <Link href="/cover" passHref>
+        <button type="button" className="btn btn-primary">
+          OP Cover
+        </button>
+      </Link>
     </div>
   );
 };
