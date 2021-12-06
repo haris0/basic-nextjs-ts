@@ -2,7 +2,7 @@ import type { ReactElement } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Layout from '@components/layout';
-import styles from '@styles/Home.module.css';
+import styles from '@styles/Home.module.scss';
 
 const Home = () => {
   const router = useRouter();

@@ -1,4 +1,4 @@
-import '@styles/globals.css';
+import '@styles/globals.scss';
 import '@styles/layout.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ThemeProvider } from 'styled-components';
