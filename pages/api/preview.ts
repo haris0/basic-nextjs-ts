@@ -5,5 +5,5 @@ export default function handler(
   res: NextApiResponse,
 ) {
   res.setPreviewData({ user: 'Zero' });
-  res.redirect(<string>req.query.redirect);
+  res.redirect(req.query.redirect as string);
 }
